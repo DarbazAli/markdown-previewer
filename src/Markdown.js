@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Remarkable } from "remarkable";
-// import { defaultText } from "./defaultText";
 
 export default class Markdown extends Component {
   constructor(props) {
@@ -11,8 +10,8 @@ export default class Markdown extends Component {
     })
 
     this.state = {
-      value: `# Hello World! 
-## Enjoi your note taking
+      value: `# iMarker
+## A fully functional Markdown editor and previewer
 iMarker © 2020 a Product from [Darbaz Ali](https://darbaz.design)
       `,
     };
@@ -25,7 +24,7 @@ iMarker © 2020 a Product from [Darbaz Ali](https://darbaz.design)
     this.setState({ value: e.target.value });
   }
 
-  handleClear(e) {
+  handleClear() {
     const target = document.getElementById("editor");
     target.value = "";
     target.focus()
@@ -40,7 +39,7 @@ iMarker © 2020 a Product from [Darbaz Ali](https://darbaz.design)
       <div className="MarkdownEditor">
           <div id="header">
             <button onClick={this.handleClear} className="btn">Clear</button>
-            <h2 id="title" className="header-row">iMarker</h2>
+            <a href="/"><h2 id="title" className="header-row">iMarker</h2></a>
           </div>
        
 

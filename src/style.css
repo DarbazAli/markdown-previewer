@@ -100,19 +100,4 @@ a {
     #sections {
         flex-direction: column;
     }
-
-
-    #header {
-        flex-direction: column-reverse;
-    }
-
-    #header .header-row {
-        width: 100%;
-    }
-
-    .btn {
-        float: none;
-        margin-left: 16px;
-        margin-bottom: 16px;
-    }
 }
