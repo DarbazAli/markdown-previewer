@@ -27,14 +27,10 @@ iMarker © 2020 a Product from [Darbaz Ali](https://darbaz.design)
 
   handleClear(e) {
     const target = document.getElementById("editor");
-      
-      this.setState({ value: ''} )
-      target.value= this.state.value;
+    target.value = "";
+    target.focus()
   }
 
-  UNSAFE_componentWillMount() {
-    // this.setState({ value: defaultText.text });
-  }
   getRawMarkup() {
     return { __html: this.md.render(this.state.value) };
   }
