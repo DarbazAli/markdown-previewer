@@ -6,6 +6,9 @@ export default class Markdown extends Component {
   constructor(props) {
     super(props);
     this.md = new Remarkable();
+    this.md.set({
+        breaks: true
+    })
     this.state = {
       value: "",
     };
