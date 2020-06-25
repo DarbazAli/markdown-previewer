@@ -1,8 +1,5 @@
-## React Sterter Kit
-A simple React.js Starter Kit for fast development.
+# iMarker
+### A fully functional Markdown editor and previewer
+iMarker © 2020 a Product from [Darbaz Ali](https://darbaz.design)
 
-### Scripts
-**dev** for development env
-**format** runs prettier plugin
-**lint** eslint
-
+![alt text](assets/iMarker_preview.png "iMarker app")

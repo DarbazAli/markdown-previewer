@@ -11,7 +11,7 @@ export default class Markdown extends Component {
 
     this.state = {
       value: `# iMarker
-## A fully functional Markdown editor and previewer
+### A fully functional Markdown editor and previewer
 iMarker © 2020 a Product from [Darbaz Ali](https://darbaz.design)
       `,
     };
