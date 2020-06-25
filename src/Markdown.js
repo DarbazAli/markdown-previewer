@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Remarkable } from "remarkable";
-import { defaultText } from "./defaultText";
+// import { defaultText } from "./defaultText";
 
 export default class Markdown extends Component {
   constructor(props) {
@@ -9,8 +9,12 @@ export default class Markdown extends Component {
     this.md.set({
         breaks: true
     })
+
     this.state = {
-      value: "",
+      value: `# Hello World! 
+## Enjoi your note taking
+iMarker © 2020 a Product from [Darbaz Ali](https://darbaz.design)
+      `,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,11 +26,14 @@ export default class Markdown extends Component {
   }
 
   handleClear(e) {
-      e.preventDefault()
+    const target = document.getElementById("editor");
+      
+      this.setState({ value: ''} )
+      target.value= this.state.value;
   }
 
   UNSAFE_componentWillMount() {
-    this.setState({ value: defaultText.text });
+    // this.setState({ value: defaultText.text });
   }
   getRawMarkup() {
     return { __html: this.md.render(this.state.value) };
@@ -36,11 +43,8 @@ export default class Markdown extends Component {
     return (
       <div className="MarkdownEditor">
           <div id="header">
-              <div className="header-row">
-                  <button onClick={this.handleClear} className="btn">Clear</button>
-              </div>
-            
-            <h2 id="title" className="header-row">iMarker<span> Designed And Developed by <a href="https://darbaz.design">Darbaz Ali</a></span></h2>
+            <button onClick={this.handleClear} className="btn">Clear</button>
+            <h2 id="title" className="header-row">iMarker</h2>
           </div>
        
 
