@@ -1,11 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
-
+import Markdown from "./Markdown";
 
 const App = () => {
   return (
     <div>
-      <h1>Hello React!</h1>
+      <Markdown />
     </div>
   );
 };
