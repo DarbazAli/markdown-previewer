@@ -1,62 +1,53 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Remarkable } from "remarkable";
 
-export default class Markdown extends Component {
-  constructor(props) {
-    super(props);
-    this.md = new Remarkable();
-    this.md.set({
-        breaks: true
-    })
+import Editor from './Editor';
+import Previewer from './Previewer'
+import { defautlVal } from "./defautlVal";
 
-    this.state = {
-      value: `# iMarker
-## A fully functional Markdown editor and previewer
-iMarker © 2020 a Product from [Darbaz Ali](https://darbaz.design)
-      `,
-    };
+export default function Markdown (){
+  
+    const md  = new Remarkable();
+    const [value, setValue] = useState(defautlVal)
+   
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClear = this.handleClear.bind(this)
+  function handleChange(e) {
+    setValue( e.target.value)
   }
 
-  handleChange(e) {
-    this.setState({ value: e.target.value });
-  }
-
-  handleClear() {
+  function handleClear() {
     const target = document.getElementById("editor");
     target.value = "";
     target.focus()
   }
 
-  getRawMarkup() {
-    return { __html: this.md.render(this.state.value) };
+  function getRawMarkup() {
+    return { __html: md.render(value) };
   }
 
-  render() {
+
     return (
       <div className="MarkdownEditor">
           <div id="header">
-            <button onClick={this.handleClear} className="btn">Clear</button>
+            <button onClick={handleClear} className="btn">Clear</button>
             <a href="/"><h2 id="title" className="header-row">iMarker</h2></a>
           </div>
        
 
           <div id="sections">
-                <textarea
-                id="editor"
-                onChange={this.handleChange}
-                defaultValue={this.state.value}
+
+                <Editor 
+                  handleChange={handleChange}
+                  value={value}
                 />
-                <div
-                id="preview"
-                className="content"
-                dangerouslySetInnerHTML={this.getRawMarkup()}
+
+                <Previewer 
+                  getRawMarkup={getRawMarkup}
                 />
+
           </div>
         
       </div>
     );
-  }
+
 }
